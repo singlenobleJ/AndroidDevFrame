@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+Properties props = new Properties()
+props.load(new FileInputStream(file(rootProject.file("keystore.properties"))))
+android {
+    signingConfigs {
+        release {
+            keyAlias props['keyAlias']
+            keyPassword props['keyPassword']
+            storeFile file(props['storeFile'])
+            storePassword props['storePassword']
+        }
+    }
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    resourcePrefix "app_"
+    defaultConfig {
+        applicationId "com.llj.androiddevframe"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':basemodule')
+}

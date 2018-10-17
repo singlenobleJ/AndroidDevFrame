@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    //注意：resourcePrefix 只能限定xml资源,并不能限定图片资源,图片资源仍需要自身注意设置前缀名
+    resourcePrefix "base_"
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    //Android Support
+    api rootProject.ext.deps['supportV7']
+    api rootProject.ext.deps['constraint']
+    api rootProject.ext.deps['junit']
+    api rootProject.ext.deps['runner']
+    api rootProject.ext.deps['espresso']
+}
