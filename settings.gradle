@@ -1,1 +1,1 @@
-include ':app', ':basemodule', ':netmodule', ':routermodule', ':loginmodule'
+include ':app', ':basemodule', ':netmodule', ':routermodule', ':loginmodule', ':loadsirmodule'

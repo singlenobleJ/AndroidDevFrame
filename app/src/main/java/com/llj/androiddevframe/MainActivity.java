@@ -2,6 +2,9 @@ package com.llj.androiddevframe;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.llj.basemodule.base.BaseActivity;
 
@@ -20,12 +23,27 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected int provideLayoutId() {
+    public void initData(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public int bindLayout() {
         return R.layout.app_ac_main;
     }
 
     @Override
-    protected void initViews() {
+    public void initView(Bundle savedInstanceState, View contentView) {
+
+    }
+
+    @Override
+    public void doBusiness() {
+
+    }
+
+    @Override
+    public void onWidgetClick(View view) {
 
     }
 }

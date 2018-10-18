@@ -30,6 +30,7 @@ ext {
 
     deps = [
             supportV7            : "com.android.support:appcompat-v7:${depsVersion.support}",
+            design             : "com.android.support:design:${depsVersion.support}",
             junit                : "junit:junit:${depsVersion.junit}",
             constraint           : "com.android.support.constraint:constraint-layout:${depsVersion.constraint}",
             runner               : "com.android.support.test:runner:${depsVersion.runner}",

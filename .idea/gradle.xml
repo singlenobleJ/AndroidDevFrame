@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/basemodule" />
+            <option value="$PROJECT_DIR$/loadsirmodule" />
             <option value="$PROJECT_DIR$/loginmodule" />
             <option value="$PROJECT_DIR$/netmodule" />
             <option value="$PROJECT_DIR$/routermodule" />

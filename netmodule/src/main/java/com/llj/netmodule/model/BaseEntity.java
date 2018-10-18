@@ -1,4 +1,4 @@
-package com.llj.basemodule.base;
+package com.llj.netmodule.model;
 
 /**
  * <pre>
