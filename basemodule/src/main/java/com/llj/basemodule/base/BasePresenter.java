@@ -9,7 +9,7 @@ package com.llj.basemodule.base;
  */
 public interface BasePresenter<V extends BaseView> {
 
-    void attachView();
+    void attachView(V view);
 
-    void detachView(V view);
+    void detachView();
 }

@@ -28,4 +28,11 @@ dependencies {
     implementation rootProject.ext.deps['junit']
     implementation rootProject.ext.deps['runner']
     implementation rootProject.ext.deps['espresso']
+    api rootProject.ext.deps['rxjava']
+    api rootProject.ext.deps['rxandroid']
+    api rootProject.ext.deps['retrofit']
+    api rootProject.ext.deps['okhttp']
+    api rootProject.ext.deps['retrofitAdapterRxjava']
+    api rootProject.ext.deps['retrofitConverterGson']
+    api rootProject.ext.deps['okhttpInterceptor']
 }
