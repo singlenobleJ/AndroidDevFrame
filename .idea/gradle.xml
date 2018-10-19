@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/loginmodule" />
             <option value="$PROJECT_DIR$/netmodule" />
             <option value="$PROJECT_DIR$/routermodule" />
+            <option value="$PROJECT_DIR$/upgrademodule" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -15,3 +15,24 @@
  8. 组件服务的暴露
  9. 工具类的封装
  
+#### Android Studio 3.2 google()和jcenter() 容易下载依赖产生connect timeout
+利用国内阿里云镜像
+buildscript {
+         repositories {
+                 maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+                 maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+             }
+             dependencies {
+                 classpath 'com.android.tools.build:gradle:3.3.0-alpha13'
+             }
+         }
+         allprojects {
+             repositories {
+                 maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+                 maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+             }
+         }
+         task clean(type: Delete) {
+             delete rootProject.buildDir
+         }
+ 

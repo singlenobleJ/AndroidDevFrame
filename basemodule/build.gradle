@@ -24,6 +24,7 @@ android {
 dependencies {
     //Android Support
     api rootProject.ext.deps['supportV7']
+    api rootProject.ext.deps['recyclerviewV7']
     api rootProject.ext.deps['design']
     api rootProject.ext.deps['constraint']
     api rootProject.ext.deps['junit']
