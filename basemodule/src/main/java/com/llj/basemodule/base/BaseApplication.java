@@ -12,7 +12,7 @@ import com.llj.basemodule.util.Utils;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/17 11:26
- *     desc  :
+ *     desc  : 基础BaseApplication
  * </pre>
  */
 public class BaseApplication extends Application {

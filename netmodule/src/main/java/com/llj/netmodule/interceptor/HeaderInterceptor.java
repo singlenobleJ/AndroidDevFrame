@@ -9,7 +9,7 @@ import okhttp3.Response;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/18 13:34
- *     desc  :
+ *     desc  : HTTP请求头拦截器
  * </pre>
  */
 public class HeaderInterceptor implements Interceptor{

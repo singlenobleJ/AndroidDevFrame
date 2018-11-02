@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'walle'
 Properties props = new Properties()
 props.load(new FileInputStream(file(rootProject.file("keystore.properties"))))
 android {
@@ -37,4 +38,13 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':basemodule')
+}
+//美团多渠道打包
+walle {
+    // 指定渠道包的输出路径
+    apkOutputFolder = new File("${project.buildDir}/outputs/channels")
+    // 定制渠道包的APK的文件名称
+    apkFileNameFormat = '${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk'
+    // 渠道配置文件
+    channelFile = new File("${project.getProjectDir()}/channel")
 }

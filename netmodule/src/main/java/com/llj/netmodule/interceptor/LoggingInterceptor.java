@@ -9,7 +9,7 @@ import okhttp3.Response;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/18 13:36
- *     desc  :
+ *     desc  : 网络层日志拦截器
  * </pre>
  */
 public class LoggingInterceptor implements Interceptor {

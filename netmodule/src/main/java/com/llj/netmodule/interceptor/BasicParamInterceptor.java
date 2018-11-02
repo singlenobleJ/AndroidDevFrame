@@ -9,7 +9,7 @@ import okhttp3.Response;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/18 13:35
- *     desc  :
+ *     desc  : 基础参数拦截器
  * </pre>
  */
 public class BasicParamInterceptor implements Interceptor {

@@ -16,7 +16,7 @@ import android.view.WindowManager;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/17 11:26
- *     desc  :
+ *     desc  : 基础Activity
  * </pre>
  */
 public abstract class BaseActivity extends AppCompatActivity implements IBaseView,View.OnClickListener {

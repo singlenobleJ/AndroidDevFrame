@@ -30,6 +30,7 @@ dependencies {
     api rootProject.ext.deps['junit']
     api rootProject.ext.deps['runner']
     api rootProject.ext.deps['espresso']
+    api rootProject.ext.deps['walle']
     api project(':routermodule')
     implementation project(':netmodule')
 }

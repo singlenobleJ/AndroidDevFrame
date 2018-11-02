@@ -4,7 +4,7 @@ package com.llj.netmodule.exception;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/18 13:37
- *     desc  :
+ *     desc  : 网络层异常统一包装
  * </pre>
  */
 public class ApiException extends RuntimeException {

@@ -14,6 +14,7 @@
  7. 组件之间通信
  8. 组件服务的暴露
  9. 工具类的封装
+ 10. 美团多渠道打包https://github.com/Meituan-Dianping/walle
  
 #### Android Studio 3.2 google()和jcenter() 容易下载依赖产生connect timeout
 利用国内阿里云镜像

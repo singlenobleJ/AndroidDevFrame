@@ -17,7 +17,7 @@ import android.view.ViewGroup;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/17 11:29
- *     desc  :
+ *     desc  : 基础Fragment
  * </pre>
  */
 public abstract class BaseFragment extends Fragment implements IBaseView, View.OnClickListener {

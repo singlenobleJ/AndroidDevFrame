@@ -4,7 +4,7 @@ package com.llj.basemodule.base;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/18 16:00
- *     desc  :
+ *     desc  : 基础懒加载Fragment
  * </pre>
  */
 public abstract class BaseLazyFragment extends BaseFragment {
