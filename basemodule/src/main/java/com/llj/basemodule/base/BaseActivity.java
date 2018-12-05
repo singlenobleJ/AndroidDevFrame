@@ -4,13 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 /**
  * <pre>
@@ -19,22 +15,22 @@ import android.view.WindowManager;
  *     desc  : 基础Activity
  * </pre>
  */
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView,View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView, View.OnClickListener {
 
+    private static final String TAG = "BaseActivity";
     protected View mContentView;
     protected Activity mActivity;
 
-    private long lastClick = 0;
+    private long mLastClick = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setBaseView(bindLayout());
+        initView(savedInstanceState, mContentView);
         mActivity = this;
         Bundle bundle = getIntent().getExtras();
         initData(bundle);
-        initView(savedInstanceState, mContentView);
-        doBusiness();
     }
 
     @SuppressLint("ResourceType")
@@ -51,8 +47,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
      */
     private boolean isFastClick() {
         long now = System.currentTimeMillis();
-        if (now - lastClick >= 200) {
-            lastClick = now;
+        if (now - mLastClick >= 200) {
+            mLastClick = now;
             return false;
         }
         return true;

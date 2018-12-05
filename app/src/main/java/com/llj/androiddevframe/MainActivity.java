@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.ImageView;
 
-import com.llj.basemodule.base.BaseActivity;
+import com.llj.basemodule.base.BaseAppActivity;
+import com.llj.basemodule.util.GlideUtils;
 
 /**
  * <pre>
@@ -15,7 +17,8 @@ import com.llj.basemodule.base.BaseActivity;
  *     desc  :
  * </pre>
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseAppActivity {
+
 
     public static void start(Context context) {
         Intent starter = new Intent(context, MainActivity.class);
@@ -34,7 +37,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
-
+        ImageView imageView = findViewById(R.id.image);
+        GlideUtils.loadWithDefault(this, "https://sports.eastday.com/jscss/v4/img/Sliding_img/1.jpg", imageView);
     }
 
     @Override

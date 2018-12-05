@@ -13,7 +13,7 @@ import io.reactivex.disposables.Disposable;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/17 17:43
- *     desc  :
+ *     desc  : 基础Presenter类
  * </pre>
  */
 public class CommonPresenter<V extends BaseView> implements BasePresenter<V>, LifecycleObserver {
@@ -34,6 +34,27 @@ public class CommonPresenter<V extends BaseView> implements BasePresenter<V>, Li
         return mRefView.get();
     }
 
+    /**
+     * 增加订阅关系
+     *
+     * @param disposable
+     */
+    protected void addSubscribe(Disposable disposable) {
+        if (mCompositeDisposable == null) {
+            mCompositeDisposable = new CompositeDisposable();
+        }
+        mCompositeDisposable.add(disposable);
+    }
+
+    /**
+     * 清除订阅关系
+     */
+    private void unSubscribe() {
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.clear();
+        }
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     @Override
     public void detachView() {
@@ -44,16 +65,5 @@ public class CommonPresenter<V extends BaseView> implements BasePresenter<V>, Li
         unSubscribe();
     }
 
-    protected void addSubscribe(Disposable disposable) {
-        if (mCompositeDisposable == null) {
-            mCompositeDisposable = new CompositeDisposable();
-        }
-        mCompositeDisposable.add(disposable);
-    }
 
-    private void unSubscribe() {
-        if (mCompositeDisposable != null) {
-            mCompositeDisposable.clear();
-        }
-    }
 }

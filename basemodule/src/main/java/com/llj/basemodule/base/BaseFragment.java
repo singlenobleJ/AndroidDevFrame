@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView, View.O
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
     protected View mContentView;
     protected Activity mActivity;
-    private long lastClick = 0;
+    private long mLastClick = 0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +45,9 @@ public abstract class BaseFragment extends Fragment implements IBaseView, View.O
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setBaseView(inflater, container, bindLayout());
+        if (mContentView == null) {
+            setBaseView(inflater, container, bindLayout());
+        }
         return mContentView;
     }
 
@@ -85,8 +86,8 @@ public abstract class BaseFragment extends Fragment implements IBaseView, View.O
 
     private boolean isFastClick() {
         long now = System.currentTimeMillis();
-        if (now - lastClick >= 200) {
-            lastClick = now;
+        if (now - mLastClick >= 200) {
+            mLastClick = now;
             return false;
         }
         return true;
@@ -98,6 +99,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView, View.O
     }
 
     public <T extends View> T findViewById(@IdRes int id) {
+
         if (mContentView == null) throw new NullPointerException("ContentView is null.");
         return mContentView.findViewById(id);
     }

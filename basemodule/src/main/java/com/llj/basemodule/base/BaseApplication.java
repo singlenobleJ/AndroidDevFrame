@@ -5,6 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.llj.basemodule.manager.ActivityStackManager;
 import com.llj.basemodule.manager.ModuleManager;
 import com.llj.basemodule.util.Utils;
 
@@ -38,6 +39,7 @@ public class BaseApplication extends Application {
         @Override
         public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
             Log.d(TAG, "onActivityCreated() called with: activity = [" + activity + "], savedInstanceState = [" + savedInstanceState + "]");
+            ActivityStackManager.addActivity(activity);
         }
 
         @Override
@@ -68,6 +70,7 @@ public class BaseApplication extends Application {
         @Override
         public void onActivityDestroyed(Activity activity) {
             Log.d(TAG, "onActivityDestroyed() called with: activity = [" + activity + "]");
+            ActivityStackManager.removeActivity(activity);
         }
     };
 }

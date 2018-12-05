@@ -31,6 +31,9 @@ dependencies {
     api rootProject.ext.deps['runner']
     api rootProject.ext.deps['espresso']
     api rootProject.ext.deps['walle']
+    api rootProject.ext.deps['eventbus']
+    api rootProject.ext.deps['glide']
+    annotationProcessor rootProject.ext.deps['glideCompiler']
     api project(':routermodule')
     implementation project(':netmodule')
 }

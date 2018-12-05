@@ -1,13 +1,17 @@
 package com.llj.androiddevframe;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.llj.basemodule.base.BaseActivity;
+import com.llj.basemodule.base.BaseAppActivity;
+
+import java.lang.ref.WeakReference;
 
 /**
  * <pre>
@@ -16,8 +20,9 @@ import com.llj.basemodule.base.BaseActivity;
  *     desc  :
  * </pre>
  */
-public class SplashActivity extends BaseActivity {
-    private Handler mHandler = new Handler();
+public class SplashActivity extends BaseAppActivity {
+    public static final int MESSAGE_WHAT = 666;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,13 +48,28 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void doBusiness() {
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                MainActivity.start(SplashActivity.this);
-                finish();
+        mHandler = new TimerTaskHandler(this);
+        mHandler.sendEmptyMessageDelayed(MESSAGE_WHAT, 3000);
+
+    }
+
+    private static class TimerTaskHandler extends Handler {
+        private WeakReference<Activity> refActivity;
+
+        public TimerTaskHandler(SplashActivity activity) {
+            refActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            int what = msg.what;
+            if (MESSAGE_WHAT == what) {
+                if (refActivity != null && refActivity.get() != null) {
+                    MainActivity.start(refActivity.get());
+                    refActivity.get().finish();
+                }
             }
-        }, 3000);
+        }
     }
 
     @Override
@@ -59,7 +79,8 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         mHandler.removeCallbacksAndMessages(null);
+        super.onDestroy();
+
     }
 }

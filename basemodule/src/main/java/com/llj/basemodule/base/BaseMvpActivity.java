@@ -13,7 +13,7 @@ import com.llj.basemodule.util.CreateUtils;
  * </pre>
  */
 public abstract class BaseMvpActivity<P extends CommonPresenter> extends BaseActivity implements BaseView {
-    private P mPresenter;
+    protected P mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public abstract class BaseMvpActivity<P extends CommonPresenter> extends BaseAct
         mPresenter = CreateUtils.getT(this, 0);
         mPresenter.attachView(this);
         getLifecycle().addObserver(mPresenter);
+        doBusiness();
     }
-
-    protected abstract void initData();
 }

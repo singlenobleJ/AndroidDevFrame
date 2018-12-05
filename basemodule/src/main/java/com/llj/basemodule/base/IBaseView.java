@@ -8,7 +8,7 @@ import android.view.View;
  * <pre>
  *     author: lilinjie
  *     time  : 2018/10/18 16:01
- *     desc  :
+ *     desc  : 基础View接口
  * </pre>
  */
 public interface IBaseView {
@@ -32,7 +32,7 @@ public interface IBaseView {
     void initView(final Bundle savedInstanceState, final View contentView);
 
     /**
-     * 业务操作
+     * 业务操作,网络请求等
      */
     void doBusiness();
 
