@@ -29,6 +29,14 @@ android {
             signingConfig signingConfigs.release
         }
     }
+    //自定义输出apk的名称
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def apkFile = "AndroidDevFrame_v${variant.versionName}_${variant.buildType.name}.apk"
+            outputFileName = apkFile
+        }
+
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -48,3 +56,4 @@ walle {
     // 渠道配置文件
     channelFile = new File("${project.getProjectDir()}/channel")
 }
+
