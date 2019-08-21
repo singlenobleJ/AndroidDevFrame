@@ -26,6 +26,11 @@ public class CommonPresenter<V extends BaseView> implements BasePresenter<V>, Li
         mRefView = new WeakReference<>(view);
     }
 
+    /**
+     * Deprecated use {@link #ifViewAttached(ViewAction)} instead.
+     *
+     * @return
+     */
     protected boolean isViewAttached() {
         return mRefView != null && mRefView.get() != null;
     }
@@ -63,6 +68,18 @@ public class CommonPresenter<V extends BaseView> implements BasePresenter<V>, Li
             mRefView = null;
         }
         unSubscribe();
+    }
+
+    protected void ifViewAttached(ViewAction<V> action) {
+        final V view = mRefView == null ? null : mRefView.get();
+        if (view != null) {
+            action.run(view);
+        }
+    }
+
+    public interface ViewAction<V> {
+
+        void run(V view);
     }
 
 

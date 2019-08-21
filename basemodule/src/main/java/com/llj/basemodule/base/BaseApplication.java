@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.llj.basemodule.manager.ActivityStackManager;
 import com.llj.basemodule.manager.ModuleManager;
+import com.llj.basemodule.monitor.AppMonitor;
 import com.llj.basemodule.util.Utils;
 
 /**
@@ -27,6 +28,7 @@ public class BaseApplication extends Application {
         registerActivityLifecycleCallbacks(mCallbacks);
         Utils.init(this);
         ModuleManager.initModule();
+        AppMonitor.getInstance().init(this);
     }
 
 
